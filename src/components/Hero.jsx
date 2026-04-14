@@ -3,9 +3,13 @@ import React, { useEffect, useRef } from 'react'
 const Hero = () => {
     const videoRef = useRef();
 
-    useEffect(() => {
-        if(videoRef.current) videoRef.current.playbackRate = 2;
-    }, []);
+ useEffect(() => {
+  setTimeout(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.2;
+    }
+  }, 1000);
+}, []);;
 
 
   return (
@@ -15,7 +19,7 @@ const Hero = () => {
             <img src="/title.png" alt="Macbook title" />
         </div>
 
-        <video ref={videoRef} src="/videos/hero.mp4" autoPlay muted playsInline />
+        <video ref={videoRef} src="/videos/hero.mp4" autoPlay muted playsInline preload="metadata" />
         
         <button>Buy</button>
 
